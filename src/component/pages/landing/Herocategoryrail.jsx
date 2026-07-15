@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { CATEGORIES } from "./CategoryData";
+import { CATEGORIES } from "./navbar/CategoryData";
 
 
 export default function HeroCategoryRail() {
@@ -16,9 +16,9 @@ export default function HeroCategoryRail() {
           transition={{ duration: 0.5, delay: 0.08 * i, ease: [0.22, 1, 0.36, 1] }}
         >
           <Link
-            to={`/shop?category=${cat.slug}`}
-            className="whiold-rail-tile block w-[100px] md:w-[124px]"
-          >
+  to={`/category/${cat.slug}`}
+  className="whiold-rail-tile block w-[100px] md:w-[124px]"
+>
             <div className="whiold-rail-avatar mx-auto h-[100px] w-[100px] md:h-[124px] md:w-[124px]">
               <img src={cat.image} alt={cat.name} />
             </div>

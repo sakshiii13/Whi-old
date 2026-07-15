@@ -16,7 +16,8 @@ export const Router = {
   CART: "/cart",
   PRODUCT_DETAIL: "/product/:id",
   COLLECTION: "/collections",
-  ADMIN_LOGIN: "/admin/whiold-x-admin/login",
+  CATEGORY: "/category/:category",
+  ADMIN_LOGIN: "/admin/login",
 
 };
 

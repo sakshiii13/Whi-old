@@ -5,6 +5,7 @@ import PolaroidProductCard from "./Polaroidproductcard";
 import EditorialProductCard from "./Editorialproductcard";
 import { Typography } from "@mui/material";
 import BrandSection from "../landing/brands/BrandSection";
+import CraftImpact from "./Craftimpact";
 
 const products = [
   {
@@ -67,6 +68,7 @@ const Home = () => {
       </section>
 
       <TheEditSection />
+      <CraftImpact/>
       <EditorialProductCard/>
       <BrandSection />
     </>

@@ -25,7 +25,7 @@ const editProducts = {
     rating: 4.6,
     reviewCount: 42,
     description: "A soft, textured throw woven from natural fibers — cozy layering for any room.",
-    images: ["https://picsum.photos/seed/whiold-throw-main/700/900"],
+    images: ["/theEdit/home.jpg"],
   },
   pitcherCrop: {
     id: "edit-pitcher-crop",
@@ -37,7 +37,7 @@ const editProducts = {
     rating: 4.4,
     reviewCount: 18,
     description: "Hand-finished ceramic pitcher with a matte glaze.",
-    images: ["https://picsum.photos/seed/whiold-pitcher-crop/400/320"],
+    images: ["/theEdit/home1.jpg"],
   },
   mugCopper: {
     id: "edit-mug-copper",
@@ -48,7 +48,7 @@ const editProducts = {
     rating: 4.7,
     reviewCount: 25,
     description: "A set of two ceramic mugs with a warm copper-toned glaze.",
-    images: ["https://picsum.photos/seed/whiold-mug-copper/400/320"],
+    images: ["/theEdit/home2.jpg"],
   },
   basket: {
     id: "edit-basket",
@@ -60,7 +60,7 @@ const editProducts = {
     rating: 4.8,
     reviewCount: 33,
     description: "Handwoven storage basket made from natural seagrass fiber.",
-    images: ["https://picsum.photos/seed/whiold-basket/400/320"],
+    images: ["/theEdit/home3.jpg"],
   },
   towel: {
     id: "edit-towel",
@@ -72,7 +72,7 @@ const editProducts = {
     rating: 4.5,
     reviewCount: 51,
     description: "A plush 3-piece bath towel set made from long-staple cotton.",
-    images: ["https://picsum.photos/seed/whiold-towel/400/320"],
+    images: ["/theEdit/home4.jpg"],
   },
   mugCandle: {
     id: "edit-mug-candle",
@@ -84,7 +84,7 @@ const editProducts = {
     rating: 4.6,
     reviewCount: 29,
     description: "A ceramic mug paired with a hand-poured soy candle.",
-    images: ["https://picsum.photos/seed/whiold-mug-candle/700/900"],
+    images: ["/theEdit/home5.jpg"],
   },
 };
 

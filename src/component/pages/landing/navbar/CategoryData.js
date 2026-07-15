@@ -1,17 +1,12 @@
-/* ============================================================
-   whiold-categories-data.js
-   SINGLE SOURCE OF TRUTH for categories — used by both
-   CategoryMegaMenu.jsx (navbar) and HeroCategoryRail.jsx (hero).
-   Add/edit a category here once, both places update automatically.
-   Wire `slug` to your /shop?category= query or your real category
-   API when the backend is ready — structure stays the same.
-   ============================================================ */
+import { Router } from "../../../../constants/router";
+
 
 export const CATEGORIES = [
   {
     id: "men",
     name: "Men",
     slug: "men",
+    path: Router.MEN,
     image:
       "https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=800&auto=format&fit=crop",
     subcategories: ["Kurtas", "Sherwanis", "Nehru Jackets", "Bandhgalas", "Casual Fits"],

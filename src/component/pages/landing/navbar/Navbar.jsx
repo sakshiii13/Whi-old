@@ -21,8 +21,8 @@ import mainContent from "../../../../constants/mainContent";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useCart } from "../../../../context/CartContext";
-import CategoryMegaMenu from "../Categorymenu";
-import { CATEGORIES } from "../CategoryData";
+import CategoryMegaMenu from "./Categorymenu";
+import { CATEGORIES } from "./CategoryData";
 
 const NAV_LINKS = [
   { label: "Home", to: "/" },
@@ -432,7 +432,7 @@ const Navbar = ({ wishlistCount = 3 }) => {
                 {CATEGORIES.map((cat) => (
                   <Link
                     key={cat.id}
-                    to={`/shop?category=${cat.slug}`}
+                    to={`/category/${cat.slug}`}
                     onClick={() => setMobileOpen(false)}
                     className="flex items-center gap-3 py-2.5 text-[14px] transition-colors duration-200 hover:text-[var(--whiold-primary)]"
                     style={{ color: "var(--whiold-text-body)" }}

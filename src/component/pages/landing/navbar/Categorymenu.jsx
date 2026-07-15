@@ -4,6 +4,15 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { CATEGORIES } from "./CategoryData";
 
+// ── Map a category slug to its dedicated landing page route.        ──
+// ── As you build Women/Kids/Sports/Accessories, just add them here. ──
+const CATEGORY_ROUTES = {
+  men: "/category/men",
+  // women: "/category/women",
+  // kids: "/category/kids",
+  // sports: "/category/sports",
+  // accessories: "/category/accessories",
+};
 
 export default function CategoryMegaMenu() {
   const [open, setOpen] = useState(false);
@@ -27,7 +36,9 @@ export default function CategoryMegaMenu() {
       {/* ---------- Trigger — same size/color/underline language as NAV_LINKS ---------- */}
       <button
         className="group relative flex items-center gap-1 px-3 py-2 text-[14.5px] font-medium rounded-[var(--whiold-radius-sm)] transition-colors duration-200 hover:text-[var(--whiold-primary)]"
-        style={{ color: open ? "var(--whiold-primary)" : "var(--whiold-text-body)" }}
+        style={{
+          color: open ? "var(--whiold-primary)" : "var(--whiold-text-body)",
+        }}
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
       >
@@ -56,46 +67,52 @@ export default function CategoryMegaMenu() {
             transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="grid grid-cols-5">
-              {CATEGORIES.map((cat, i) => (
-                <motion.div
-                  key={cat.id}
-                  className="whiold-megamenu-col p-5"
-                  initial={{ opacity: 0, y: 6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.25, delay: 0.04 * i }}
-                >
-                  {/* Featured thumbnail — makes the menu feel visual, not just a text list */}
-                  <Link to={`/shop?category=${cat.slug}`} onClick={() => setOpen(false)}>
-                    <div className="rounded-[var(--whiold-radius-md)] overflow-hidden mb-3 h-24">
-                      <img
-                        src={cat.image}
-                        alt={cat.name}
-                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                      />
-                    </div>
-                    <h4
-                      className="text-sm font-semibold mb-2"
-                      style={{ color: "var(--whiold-text-heading)" }}
-                    >
-                      {cat.name}
-                    </h4>
-                  </Link>
+              {CATEGORIES.map((cat, i) => {
+                // If this category has a dedicated landing page, go there.
+                // Otherwise fall back to the generic shop filter (unchanged behaviour).
+                const categoryHref = `/category/${cat.slug}`;
 
-                  <ul className="space-y-1.5">
-                    {cat.subcategories.map((sub) => (
-                      <li key={sub}>
-                        <Link
-                          to={`/shop?category=${cat.slug}&sub=${encodeURIComponent(sub)}`}
-                          onClick={() => setOpen(false)}
-                          className="whiold-megamenu-sublink text-xs inline-block"
-                        >
-                          {sub}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              ))}
+                return (
+                  <motion.div
+                    key={cat.id}
+                    className="whiold-megamenu-col p-5"
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.25, delay: 0.04 * i }}
+                  >
+                    {/* Featured thumbnail — makes the menu feel visual, not just a text list */}
+                    <Link to={categoryHref} onClick={() => setOpen(false)}>
+                      <div className="rounded-[var(--whiold-radius-md)] overflow-hidden mb-3 h-24">
+                        <img
+                          src={cat.image}
+                          alt={cat.name}
+                          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                        />
+                      </div>
+                      <h4
+                        className="text-sm font-semibold mb-2"
+                        style={{ color: "var(--whiold-text-heading)" }}
+                      >
+                        {cat.name}
+                      </h4>
+                    </Link>
+
+                    <ul className="space-y-1.5">
+                      {cat.subcategories.map((sub) => (
+                        <li key={sub}>
+                          <Link
+                            to={`/category/${cat.slug}?sub=${encodeURIComponent(sub)}`}
+                            onClick={() => setOpen(false)}
+                            className="whiold-megamenu-sublink text-xs inline-block"
+                          >
+                            {sub}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                );
+              })}
             </div>
 
             {/* Footer strip — quick link to full shop */}

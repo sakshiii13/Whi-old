@@ -18,6 +18,8 @@ import Register from '../component/pages/landing/auth/Register'
 import DataTable from '../component/ui/DataTable'
 import { useAuth } from '../context/AuthContext'
 import { getToken } from '../utils/authStorage'
+import MenCategory from '../component/pages/landing/navbar/categories/CategoryPage'
+import CategoryPage from '../component/pages/landing/navbar/categories/CategoryPage'
 
 const Auth = () => {
     const {isAuthenticated} = useAuth();
@@ -36,6 +38,7 @@ const Auth = () => {
         <Route path={Router.WISHLIST} element={<WishlistPage />} />
         <Route path={Router.SHOPPING} element={<Shopping />} />
         <Route path={Router.COLLECTION} element={<Collections />} />
+        <Route path={Router.CATEGORY} element={<CategoryPage />} />
       </Route>
       <Route path={Router.SHOP} element={<Shop />} />
       <Route path={Router.THEEDIT} element={<TheEditSection />} />
